@@ -1,0 +1,17 @@
+# xinetd config 
+# default: on
+# description: mysqlcheck
+service mysqlcheckk
+{
+        flags           = REUSE
+        socket_type     = stream
+        port            = 6789
+        wait            = no
+        user            = nobody
+        server          = /opt/mysqlcheck/mysqlcheck_xinetd.py
+        log_on_failure  += USERID
+        disable         = no
+        only_from       = 0.0.0.0/0 
+        per_source      = UNLIMITED 
+}
+
